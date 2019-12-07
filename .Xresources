@@ -1,0 +1,4 @@
+XTerm*termName:		xterm-256color
+xterm*font:		-*-courier-medium-r-*-*-18-*-*-*-*-*-iso10646-1
+xterm*background:	black
+xterm*foreground:	lightgray
