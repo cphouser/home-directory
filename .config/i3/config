@@ -9,19 +9,11 @@
 
 # increase/decrease keyboard brightness from ~/bin/kbdbacklight
 # https://unix.stackexchange.com/a/367508 
-<<<<<<< HEAD
 #bindsym XF86KbdBrightnessUp exec kbdbacklight up
 #bindsym XF86KbdBrightnessDown exec kbdbacklight down 
 
 #bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
 #bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
-=======
-# bindsym XF86KbdBrightnessUp exec kbdbacklight up
-# bindsym XF86KbdBrightnessDown exec kbdbacklight down 
-
-# bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
-# bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
->>>>>>> efce661b8209500d243cfc8de29da255716c8aa3
 
 # Set mod key as windows key
 set $mod Mod4
