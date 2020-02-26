@@ -15,6 +15,23 @@
 #bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
 #bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
 
+set_from_resource $COLOR0 xterm.color0 #ffff5f
+set_from_resource $COLOR1 xterm.color1 #ffff5f
+set_from_resource $COLOR2 xterm.color2 #ffff5f
+set_from_resource $COLOR3 xterm.color3 #ffff5f
+set_from_resource $COLOR4 xterm.color4 #ffff5f
+set_from_resource $COLOR5 xterm.color5 #ffff5f
+set_from_resource $COLOR6 xterm.color6 #ffff5f
+set_from_resource $COLOR7 xterm.color7 #ffff5f
+set_from_resource $COLOR8 xterm.color8 #ffff5f
+set_from_resource $COLOR9 xterm.color9 #ffff5f
+set_from_resource $COLOR10 xterm.color10 #ffff5f
+set_from_resource $COLOR11 xterm.color11 #ffff5f
+set_from_resource $COLOR12 xterm.color12 #ffff5f
+set_from_resource $COLOR13 xterm.color13 #ffff5f
+set_from_resource $COLOR14 xterm.color14 #ffff5f
+
+
 # Set mod key as windows key
 set $mod Mod4
 
@@ -117,7 +134,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'End your X session?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -148,31 +165,34 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango:Courier New Bold 11
+  #font pango:Courier New Bold 9
+  #font -bitstream-courier 10 pitch-medium-r-*-*-*-*-0-*-*-*-*-standard
+  font -*-courier-medium-r-*-*-14-*-100-*-*-*-iso10646-1
   status_command "i3status --config ~/.i3status.conf"
   colors { 
-    statusline        #afffff #light cyan
-    separator         #ffaf5f #light orange
-    active_workspace  #ff5f00 #d75f00 #dfffff #orange/dark orange/x-light cyan
-    focused_workspace #d75f00 #000000 #ff5f00 #dark orange/black/orange
-    inactive_workspace #008080 #000000 #00ffff #dark cyan/black/cyan
-    urgent_workspace  #ff87af #000000 #ff005f #dark pink/black/pink
+    statusline         $COLOR12 #light cyan
+    separator          $COLOR2 #light orange
+    active_workspace   $COLOR3  $COLOR0 $COLOR11 #dark orange/black/orange
+    focused_workspace  $COLOR11 $COLOR3 $COLOR14 #orange/dark orange/x-light cyan
+    inactive_workspace $COLOR4  $COLOR0 $COLOR12 #dark cyan/black/cyan
+    urgent_workspace   $COLOR9  $COLOR0 $COLOR1 #dark pink/black/pink
 
   }
 }
 
 default_border normal
 hide_edge_borders smart
-font pango:Courier New Bold 11
+# font pango:Courier New Bold 9
+#font -bitstream-courier 10 pitch-meduim-r-*-*-*-*-0-*-*-*-*-standard
+font -*-courier-medium-r-*-*-14-*-100-*-*-*-iso10646-1
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #ff5f00 #000000 #ffaf5f #ff5f00   #000000
-client.focused_inactive #00ffff #000000 #afffff #00ffff   #000000
-client.unfocused        #008080 #000000 #00d7d7 #008080   #000000
-client.urgent           #ff8787 #000000 #ff87af #ff8787   #000000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #000000
-
-client.background       #ffffff
+client.focused          $COLOR11 $COLOR0 $COLOR2  $COLOR11 $COLOR0
+client.focused_inactive $COLOR6  $COLOR0 $COLOR12 $COLOR14 $COLOR0
+client.unfocused        $COLOR4  $COLOR0 $COLOR6  $COLOR4  $COLOR0
+client.urgent           $COLOR9  $COLOR0 $COLOR1  $COLOR9  $COLOR0
+client.placeholder      $COLOR0  $COLOR7 $COLOR15 $COLOR0  $COLOR0
+client.background       $COLOR15
 
 #menu key is right super (mod4)
 exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
