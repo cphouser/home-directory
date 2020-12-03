@@ -1,0 +1,8 @@
+ssh-keygen -t ed25519 -C "github@email.addr"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+# copy new key .pub file to github
+
+
+git config --global user.email "github@email.addr"
+git config --global user.name "Calvin Houser"
